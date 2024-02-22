@@ -1,6 +1,6 @@
-    @extends('layout.app')
-    @section('title', 'List Buku')
-    @section('content')
+@extends('layout.app')
+@section('title', 'List Buku')
+@section('content')
     <!-- TopBar -->
     <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
         <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
@@ -89,9 +89,20 @@
             </div>
             @endforeach
         </div>
+
+        @if(count($books) === 0)
+        <div class="text-center">
+            <div>
+                <img src="{{ asset('images/notfound_transparent.jpg') }}" alt="img" width="380px">
+            </div>
+            <div class="h2 mt-1 font-weight-bold">Not Found</div>
+        </div>
+        @endif
+
         <div class="row">
             <span class="mx-auto mb-4 mt-3">{{ $books->links() }}</span>
         </div>
+
     </div>
     <!---Container Fluid-->
 
@@ -115,4 +126,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection

@@ -72,8 +72,19 @@ class UserController extends Controller
         return redirect('anggota')->with('success', 'Anggota Berhasil Diblokir');
     }
 
-    public function blockedAnggota() {
-        $blockedAnggota = User::onlyTrashed()->where('role_id', 3)->latest()->paginate(10);
+    public function blockedAnggota(Request $request) {
+        $keyword = $request->keyword;
+        
+        $queryAnggota = User::onlyTrashed()->where('role_id', 3)->latest();
+
+        if(!empty($keyword)) {
+            $queryAnggota->where(function($query) use ($keyword) {
+                $query->where('name', 'like', '%'.$keyword.'%')
+                    ->orWhere('username', 'like', '%'.$keyword.'%');
+            });
+        }
+
+        $blockedAnggota = $queryAnggota->paginate(10);
         $userWithRoles = User::with(['role'])->get();
         return view('blocked_anggota', ['blockedAnggota' => $blockedAnggota, 'userWithRoles' => $userWithRoles]);
     }

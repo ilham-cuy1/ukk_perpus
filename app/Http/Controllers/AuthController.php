@@ -28,6 +28,8 @@ class AuthController extends Controller
             'password.required' => 'Password wajib diisi.'
         ]);
 
+        $request->session()->put('username', $request->username);
+
         if (Auth::attempt($credentials)) {
             // cek user status active
             if (Auth::user()->status != 'active') {

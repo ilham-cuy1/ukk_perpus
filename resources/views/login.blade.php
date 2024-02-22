@@ -73,7 +73,7 @@
                                     <form class="user" action="" method="post">
                                         @csrf
                                         <div class="form-group mt-4">
-                                            <input type="text" class="form-control" name="username" placeholder="Masukkan Username">
+                                            <input type="text" class="form-control" name="username" placeholder="Masukkan Username" value="{{ session('username') }}">
                                         </div>
                                         @error('username')
                                         <div class="text-danger">

@@ -41,6 +41,20 @@
   <div class="row mb-3">
     <div class="col-lg-12">
       <div class="card mb-4">
+        <div class="card-header py-3 flex-row align-items-center justify-content-between">
+          <div class="row">
+            <div class="col-lg-3">
+              <form action="" method="get">
+                <div class="input-group">
+                  <input type="search" name="keyword" class="form-control" title="Search" placeholder="Cari data anggota...">
+                  <div class="input-group-append" style="z-index: 0;">
+                    <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
         <div class="table-responsive p-3">
           <table class="table table-bordered align-items-center table-flush bordered" id="dataTable">
             <thead class="thead-light">

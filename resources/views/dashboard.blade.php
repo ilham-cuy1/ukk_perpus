@@ -43,7 +43,7 @@
   </div>
 
   <div class="row mb-3">
-    <!-- Card Example Book -->
+    <!-- Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <!-- Card Example Categories -->
+
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <!-- Card Example Users -->
+
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -97,13 +97,13 @@
               </div> -->
             </div>
             <div class="col-auto mt-2">
-              <i class="fas fa-users fa-2x text-info"></i>
+              <i class="fas fa-user-graduate fa-2x text-info"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Card Unknown -->
+
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card h-100">
         <div class="card-body">
@@ -124,15 +124,14 @@
       </div>
     </div>
 
-    <!-- Datatables -->
-    <div class="col-lg-12">
-      <div class="card mb-4 mt-3">
-        <div class="card-header py-3 flex-row align-items-center justify-content-between">
+    <div class="col-lg-7 col-xl-8 mb-4">
+      <div class="card mb-4">
+        <div class="card-header flex-row align-items-center justify-content-between">
           <div class="row">
             <div class="col mb-3">
               <h5 class="m-0 font-weight-bold text-primary">Log Peminjaman</h5>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <form action="" method="get">
                 <div class="input-group">
                   <input type="search" name="keyword" class="form-control" title="Search" placeholder="Cari data peminjaman...">
@@ -156,6 +155,17 @@
               <span>{{ $logpeminjaman->links() }}</span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-5 mb-4">
+      <div class="card mb-4" style="height: 790px;">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h5 class="m-0 font-weight-bold text-primary">Log Peminjaman</h5>
+        </div>
+        <div class="card-body">
+            {!! $chart->container() !!}
         </div>
       </div>
     </div>
@@ -186,3 +196,11 @@
 </div>
 <!---Container Fluid-->
 @endsection
+
+@section('scripts')
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{!! $chart->script() !!}
+@endsection
+

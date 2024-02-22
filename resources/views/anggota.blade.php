@@ -45,7 +45,7 @@
         <div class="card-header py-3 flex-row align-items-center justify-content-between">
           <div class="row">
             <div class="col mb-3">
-              <a href="/registered-anggota" class="btn btn-primary">Anggota Baru Terdaftar</a>
+              <a href="/registered-anggota" class="btn btn-primary">Lihat Anggota Baru Terdaftar</a>
               <a href="/blocked-anggota" class="btn btn-secondary">Lihat Anggota Yang Diblokir</a>
             </div>
             <div class="col-lg-3">

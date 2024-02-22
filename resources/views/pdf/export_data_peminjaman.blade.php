@@ -5,7 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Export Laporan Peminjaman</title>
-    <link rel="stylesheet" href="css/pdf_peminjaman.css">
+    <style>
+        #data {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        #data td,
+        #data th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        #data tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #data tr:hover {
+            background-color: #ddd;
+        }
+
+        #data th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #FFFC9B;
+            color: black;
+        }
+    </style>
 </head>
 
 <body>

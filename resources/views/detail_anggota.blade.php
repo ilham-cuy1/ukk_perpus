@@ -43,7 +43,7 @@
             <div class="card mb-3">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-center">
                     @if($anggota->status == 'inactive')
-                    <a href="/approve-anggota/{{$anggota->slug}}" class="btn btn-success">Setujui Anggota</a>
+                    <a href="/approve-anggota/{{$anggota->slug}}" class="btn btn-success"><i class="fas fa-check"></i> Setujui Anggota</a>
                     @endif
                 </div>
                 <div class="card-body border text-center">

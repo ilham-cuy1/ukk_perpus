@@ -24,21 +24,9 @@ class PublicController extends Controller
             $q->where('title', 'like', '%' . $request->title . '%');
         }
 
-        $books = $q->paginate(8);
+        $books = $q->latest()->paginate(8);
         $categories = Category::all();
 
-
-        // $categories = Category::all();
-
-        // if ($request->category || $request->title) {
-        //     $buku = Book::where('title', 'like', '%'.$request->title.'%')
-        //                 ->orWhereHas('categories', function($b) use($request) {
-        //                     $b->where('categories.id', $request->category);
-        //                 })
-        //                 ->get();
-        // } else {
-        //     $buku = Book::all();
-        // }
         $userWithRoles = User::with(['role'])->get();
         return view('list_buku', ['books' => $books, 'categories' => $categories, 'userWithRoles' => $userWithRoles]);
     }

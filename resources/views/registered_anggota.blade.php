@@ -51,7 +51,7 @@
                             <form action="" method="get">
                                 <div class="input-group">
                                     <input type="search" name="keyword" class="form-control" title="Search" placeholder="Cari anggota...">
-                                    <div class="input-group-append">
+                                    <div class="input-group-append" style="z-index: 0;">
                                         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                                     </div>
                                 </div>

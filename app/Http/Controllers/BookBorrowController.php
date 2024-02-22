@@ -35,9 +35,10 @@ class BookBorrowController extends Controller
             try {
                 DB::beginTransaction();
                 // process insert to borrow_logs table
+                $user_id = $request->user_id_hidden;
                 $user = Auth::user();
                 $borrowLog = $user->borrowLogs()->create([
-                    'user_id' => $request->user_id,
+                    'user_id' => $user_id,
                     'book_id' => $request->book_id,
                     'quantity' => $request->quantity,
                     'borrow_date' => $request->borrow_date,

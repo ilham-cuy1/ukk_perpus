@@ -50,9 +50,8 @@
                         @csrf
                         <div class="mb-3">
                             <label>Anggota</label>
-                            <select name="user_id" class="form-control select-sigle" required selected disabled style="cursor: not-allowed;">
-                                <option value="{{ auth()->user()->id }}">{{ auth()->user()->name }}</option>
-                            </select>
+                            <input name="user_id" class="form-control" required selected disabled style="cursor: not-allowed;" value="{{ auth()->user()->name }}">
+                            <input type="hidden" name="user_id_hidden" value="{{ auth()->user()->id }}">
                         </div>
                         <div class="mb-3">
                             <label>Buku</label>
