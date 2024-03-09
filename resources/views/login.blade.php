@@ -22,6 +22,21 @@
             background-attachment: fixed;
             background-size: cover;
         }
+
+        @media screen and (min-width: 768px) {
+            .g-recaptcha {
+                transform: scale(1.0);
+                -webkit-transform: scale(1.0);
+            }
+        }
+
+        /* Untuk tampilan perangkat seluler */
+        @media screen and (max-width: 767px) {
+            .g-recaptcha {
+                transform: scale(0.82);
+                transform-origin: 0 0;
+            }
+        }
     </style>
 
 </head>
@@ -72,11 +87,11 @@
 
                                     <form class="user" action="" method="post">
                                         @csrf
-                                        <div class="form-group mt-4">
+                                        <div class="input-group mt-4">
                                             <input type="text" class="form-control" name="username" placeholder="Masukkan Username" value="{{ session('username') }}">
                                         </div>
                                         @error('username')
-                                        <div class="text-danger">
+                                        <div class="text-danger mt-2">
                                             {{ $message }}
                                         </div>
                                         @enderror
@@ -88,7 +103,7 @@
                                             </div>
                                         </div>
                                         @error('password')
-                                        <div class="text-danger">
+                                        <div class="text-danger mt-2">
                                             {{ $message }}
                                         </div>
                                         @enderror
@@ -99,6 +114,20 @@
                                                     Me</label>
                                             </div>
                                         </div> -->
+                                        <div class="captcha">
+                                            <div class="captcha-label">
+                                                <label class="mt-3 font-weight-bold">Klik Recaptcha Berikut</label>
+                                            </div>
+                                            <div class="g-recaptcha-container">
+                                                {!! NoCaptcha::renderJs() !!}
+                                                {!! NoCaptcha::display() !!}
+                                            </div>
+                                        </div>
+                                        @error('g-recaptcha-response')
+                                        <div class="text-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                         <div class="form-group mt-4">
                                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                                         </div>

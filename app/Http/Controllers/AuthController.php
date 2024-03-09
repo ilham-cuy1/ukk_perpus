@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class AuthController extends Controller
 {
@@ -22,11 +24,22 @@ class AuthController extends Controller
     {
         $credentials = $request->validate([
             'username' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ], [
             'username.required' => 'Username wajib diisi.',
-            'password.required' => 'Password wajib diisi.'
+            'password.required' => 'Password wajib diisi.',
         ]);
+
+        $validate = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha',
+        ], [
+            'g-recaptcha-response.required' => 'Anda harus menyelesaikan Captcha.',
+            'g-recaptcha-response.captcha' => 'Captcha tidak valid.',
+        ]);
+        
+        if ($validate->fails()) {
+            return redirect('login')->withErrors($validate)->withInput();
+        }
 
         $request->session()->put('username', $request->username);
 

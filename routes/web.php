@@ -47,7 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::middleware('OnlyAdmin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index']);
         Route::get('/books', [BookController::class, 'index']);
-        // Route::get('/books/search', [BookController::class, 'search'])->name('book.search');
         Route::get('/books-add', [BookController::class, 'addData']);
         Route::post('/books-add', [BookController::class, 'store']);
         Route::get('/books-edit/{slug}', [BookController::class, 'edit']);
@@ -63,7 +62,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/category-edit/{slug}', [CategoryController::class, 'edit']);
         Route::put('/category-edit/{slug}', [CategoryController::class, 'update']);
         Route::get('/category-delete/{slug}', [CategoryController::class, 'delete']);
-
+        
         Route::get('/anggota', [UserController::class, 'index']);
         Route::get('/registered-anggota', [UserController::class, 'registeredAnggota']);
         Route::get('/detail-anggota/{slug}', [UserController::class, 'show']);
